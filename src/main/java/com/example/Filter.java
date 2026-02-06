@@ -1,4 +1,5 @@
 package com.example;
 
-public interface Filter {
+public interface Filter<T> {
+    T apply(T o);
 }
