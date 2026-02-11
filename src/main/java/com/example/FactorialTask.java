@@ -31,12 +31,4 @@ public class FactorialTask extends RecursiveTask<Long> {
         leftTask.fork();
         return rightTask.compute() * leftTask.join();
     }
-
-    private Long factorial(long start, long end) {
-        long factorial = 1;
-        for (long i = start; i <= end; i++) {
-            factorial *= i;
-        }
-        return factorial;
-    }
 }
