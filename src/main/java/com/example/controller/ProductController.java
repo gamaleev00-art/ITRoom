@@ -5,25 +5,20 @@ import com.example.model.Order;
 import com.example.model.Product;
 import com.example.service.OrderService;
 import com.example.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/product")
-public class JsonController {
+@RequiredArgsConstructor
+public class ProductController {
 
     private final ProductService productService;
-    private final OrderService orderService;
 
-    public JsonController(ProductService productService, OrderService orderService) {
-        this.productService = productService;
-        this.orderService = orderService;
-    }
 
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody String json) {
@@ -47,13 +42,5 @@ public class JsonController {
         return productService.productInfo(id);
     }
 
-    @GetMapping("/order/{id}")
-    public String getOrder(@PathVariable UUID id) {
-        return orderService.getOrderInfo(id);
-    }
 
-    @PostMapping("/order")
-    public ResponseEntity<Order> createOrder(@RequestBody String json) {
-        return ResponseEntity.ok(orderService.createOrder(json));
-    }
 }
