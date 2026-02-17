@@ -1,4 +1,4 @@
 package com.example.dto;
 
-public record UpdateNameRequest() {
+public record UpdateNameRequest(String name) {
 }

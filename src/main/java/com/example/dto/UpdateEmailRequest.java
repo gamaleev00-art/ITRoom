@@ -1,4 +1,4 @@
 package com.example.dto;
 
-public class UpdateEmailRequest {
+public record UpdateEmailRequest(String email) {
 }
