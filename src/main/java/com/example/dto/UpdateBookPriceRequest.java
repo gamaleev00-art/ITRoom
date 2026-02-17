@@ -1,4 +1,6 @@
 package com.example.dto;
 
-public record UpdateBookRequest() {
+import java.math.BigDecimal;
+
+public record UpdateBookPriceRequest(BigDecimal price) {
 }
