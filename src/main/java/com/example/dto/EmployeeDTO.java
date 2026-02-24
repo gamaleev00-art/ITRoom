@@ -1,13 +1,18 @@
 package com.example.dto;
 
 import com.example.model.Department;
-import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+@Getter
 @Builder
-public class EmployeeResponseDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+public class EmployeeDTO {
     private Long id;
     private String firstName;
     private String lastName;

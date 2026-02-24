@@ -1,4 +1,7 @@
 package com.example.exception;
 
-public class EmployeeNotFoundExceprion {
+public class EmployeeNotFoundException extends RuntimeException{
+    public EmployeeNotFoundException(String message) {
+        super(message);
+    }
 }
