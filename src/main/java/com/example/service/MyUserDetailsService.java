@@ -1,5 +1,7 @@
-package com.example.model;
+package com.example.service;
 
+import com.example.model.UserPrincipal;
+import com.example.model.Users;
 import com.example.repository.UsersRepo;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

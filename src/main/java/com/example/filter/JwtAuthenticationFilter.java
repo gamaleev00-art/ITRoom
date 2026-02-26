@@ -1,5 +1,6 @@
-package com.example.security;
+package com.example.filter;
 
+import com.example.security.JWTUtils;
 import com.example.service.MyUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -8,8 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.NonNull;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -48,15 +48,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if(username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             log.info("Пытаемся аутентифицировать пользователя: {}", username);
             UserDetails userDetails = myUserDetailsService.loadUserByUsername(username);
+            System.out.println("Пытаемся аутентифицировать пользователя:");
             if (jwtUtils.isTokenValid(token,userDetails)) {
                 // Шаг 6: Создание нового контекста безопасности
                 log.info("Токен валиден. Устанавливаем Authentication в контекст. Роли: {}", userDetails.getAuthorities());
+                System.out.println("Токен валиден. Устанавливаем Authentication в контекст.");
                 UsernamePasswordAuthenticationToken tokenAuthentication =
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 tokenAuthentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(tokenAuthentication);
             } else{
                 log.warn("Токен НЕ валиден для пользователя: {}", username);
+                System.out.println("Токен НЕ валиден для пользователя:");
             }
         }
         // Шаг 7: Передача запроса на дальнейшую обработку в фильтрующий цепочке
