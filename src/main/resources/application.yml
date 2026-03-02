@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: Ov23li1NDhQoU3UyFySK
+            clientSecret: 35a544b52ffb42dc7c150c39d5d176423d7643ea
+
+  session:
+    jdbc:
+      initialize-schema: always
+
+server:
+  port: 8080
