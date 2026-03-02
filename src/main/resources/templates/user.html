@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Data</title>
+</head>
+<body>
+
+<h2>Данные пользователя:</h2>
+
+<p>Имя: <span th:text="${name}"></span></p>
+<p>Email: <span th:text="${email}"></span></p>
+<p>Id: <span th:text="${id}"></span></p>
+<p>Login: <span th:text="${login}"></span></p>
+
+<hr>
+<a th:href="@{/}">Home</a>
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Выйти из системы</button>
+</form>
+
+</body>
+</html>
