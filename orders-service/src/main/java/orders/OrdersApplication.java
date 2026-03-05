@@ -1,4 +1,11 @@
-package PACKAGE_NAME;
+package orders;
 
-public class OrdersApllication {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class OrdersApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(orders.OrdersApplication.class, args);
+    }
 }
