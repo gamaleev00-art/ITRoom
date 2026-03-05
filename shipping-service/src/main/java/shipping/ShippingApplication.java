@@ -1,11 +1,11 @@
-package com.example;
+package shipping;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Main {
+public class ShippingApplication {
     public static void main(String[] args) {
-            SpringApplication.run(Main.class, args);
-        }
+        SpringApplication.run(ShippingApplication.class, args);
     }
+}
